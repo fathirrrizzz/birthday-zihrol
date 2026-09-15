@@ -1,0 +1,1319 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday, Zihrol Nur Aliyah!</title>
+
+    <meta name="description"
+          content="A little birthday website made especially for Zihrol Nur Aliyah.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, .18), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(138, 43, 226, .18), transparent 30%),
+                radial-gradient(circle at 50% 90%, rgba(255, 215, 0, .08), transparent 35%),
+                #090014;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            pointer-events: none;
+            background-image:
+                radial-gradient(#fff 1px, transparent 1px),
+                radial-gradient(#fff 1px, transparent 1px);
+            background-size: 80px 80px, 120px 120px;
+            background-position: 0 0, 40px 60px;
+            opacity: .22;
+            animation: starsMove 25s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-80px);
+            }
+        }
+
+        .aurora {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .12;
+            z-index: -4;
+            pointer-events: none;
+        }
+
+        .aurora.one {
+            background: #ff1493;
+            top: -200px;
+            left: -150px;
+        }
+
+        .aurora.two {
+            background: #7b68ee;
+            right: -200px;
+            bottom: -150px;
+        }
+
+        /* =========================
+           OPENING SCREEN
+        ========================= */
+
+        #opening {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                radial-gradient(circle at center,
+                    #21003d 0%,
+                    #0c0017 50%,
+                    #050008 100%);
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
+
+        #opening.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .opening-content {
+            width: min(90%, 650px);
+        }
+
+        .terminal {
+            font-family: "Courier New", monospace;
+            color: #ff9bd8;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: .8;
+        }
+
+        .opening-content h1 {
+            font-size: clamp(38px, 8vw, 76px);
+            line-height: 1;
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #ff69b4,
+                #fff,
+                #b388ff,
+                #ff69b4
+            );
+
+            background-size: 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            animation: gradientText 5s linear infinite;
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        .opening-content p {
+            color: #c9b8d6;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .open-btn {
+            border: 1px solid rgba(255, 255, 255, .25);
+            background: rgba(255, 255, 255, .08);
+            color: white;
+            padding: 15px 32px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 30px rgba(255, 20, 147, .15);
+
+            transition: .3s;
+        }
+
+        .open-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+
+            box-shadow:
+                0 0 40px rgba(255, 20, 147, .35);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: min(100%, 900px);
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-inner {
+            width: 100%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+
+            color: #ffb6df;
+            font-family: monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: clamp(42px, 9vw, 88px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 span {
+            color: #ff69b4;
+            text-shadow:
+                0 0 20px rgba(255, 105, 180, .35);
+        }
+
+        .typing {
+            min-height: 30px;
+            color: #cdbddd;
+            font-family: monospace;
+            font-size: 15px;
+        }
+
+        .cursor {
+            animation: blink .8s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .glass-card {
+            margin-top: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.09),
+                    rgba(255,255,255,.025)
+                );
+
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 28px;
+            padding: clamp(25px, 5vw, 45px);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,.35),
+                inset 0 1px 0 rgba(255,255,255,.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card-header small {
+            color: #9f8baa;
+            font-family: monospace;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #9cffc8;
+            font-size: 11px;
+            font-family: monospace;
+        }
+
+        .status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #55ff9a;
+            box-shadow: 0 0 10px #55ff9a;
+        }
+
+        .message {
+            color: #eee5f2;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .message strong {
+            color: #ff9bd8;
+        }
+
+        /* =========================
+           WISH SECTION
+        ========================= */
+
+        .wish-section {
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #a997b4;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .wish-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .wish-btn {
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.05);
+            color: white;
+
+            padding: 18px 12px;
+            border-radius: 18px;
+
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .wish-btn:hover,
+        .wish-btn.active {
+            transform: translateY(-5px);
+            border-color: rgba(255,105,180,.5);
+            background: rgba(255,105,180,.1);
+        }
+
+        .wish-btn span {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .wish-result {
+            margin-top: 20px;
+            padding: 25px;
+
+            border-radius: 20px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+
+            color: #e8dce9;
+            line-height: 1.8;
+            min-height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =========================
+           SURPRISE
+        ========================= */
+
+        .surprise {
+            text-align: center;
+            margin: 90px 0 30px;
+        }
+
+        .surprise-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 999px;
+
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff1493,
+                    #8a2be2
+                );
+
+            box-shadow:
+                0 10px 35px rgba(255,20,147,.25);
+
+            transition: .3s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #surpriseText {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: .7s ease;
+        }
+
+        #surpriseText.show {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 70px;
+            color: #75667e;
+            font-family: monospace;
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        footer span {
+            color: #ff69b4;
+        }
+
+        /* =========================
+           BALLOONS
+        ========================= */
+
+        .balloon {
+            position: fixed;
+            bottom: -120px;
+            width: 45px;
+            height: 58px;
+            border-radius: 50% 50% 45% 45%;
+            z-index: -1;
+            opacity: .5;
+            pointer-events: none;
+            animation: floatBalloon linear forwards;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 80px;
+            background: rgba(255,255,255,.25);
+            left: 50%;
+            top: 55px;
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-55vh) rotate(7deg);
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(-8deg);
+            }
+        }
+
+        /* =========================
+           CLICK HEART
+        ========================= */
+
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2000;
+            animation: heartFly 1.2s ease-out forwards;
+        }
+
+        @keyframes heartFly {
+            from {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(.5);
+            }
+
+            to {
+                opacity: 0;
+                transform:
+                    translate(
+                        calc(-50% + var(--x)),
+                        calc(-50% + var(--y))
+                    )
+                    scale(1.4);
+            }
+        }
+
+        /* =========================
+           CANVAS
+        ========================= */
+
+        #fireworks {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1500;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            main {
+                padding: 40px 15px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .wish-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .glass-card {
+                border-radius: 22px;
+            }
+
+            .card-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="stars"></div>
+    <div class="aurora one"></div>
+    <div class="aurora two"></div>
+
+    <!-- Opening -->
+    <section id="opening">
+
+        <div class="opening-content">
+
+            <div class="terminal">
+                > initializing birthday_protocol...
+            </div>
+
+            <h1>
+                Zihrol Nur Aliyah
+            </h1>
+
+            <p>
+                Ada satu halaman kecil yang sengaja dibuat
+                untuk seseorang yang sedang bertambah satu level
+                dalam perjalanan hidupnya.
+            </p>
+
+            <button class="open-btn" onclick="openBirthday()">
+                ✦ Buka Pesan
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Fireworks -->
+    <canvas id="fireworks"></canvas>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-inner">
+
+                <div class="badge">
+                    BIRTHDAY_PROTOCOL.exe
+                </div>
+
+                <h2>
+                    Happy Birthday,
+                    <br>
+                    <span>Zihrol!</span>
+                </h2>
+
+                <div class="typing">
+                    <span id="typingText"></span>
+                    <span class="cursor">|</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+
+        <section class="glass-card">
+
+            <div class="card-header">
+
+                <small>
+                    /message/birthday.txt
+                </small>
+
+                <div class="status">
+                    ONLINE
+                </div>
+
+            </div>
+
+            <div class="message">
+
+                <p>
+                    <strong>Barakallah fii umrik, Zihrol Nur Aliyah.</strong>
+                </p>
+
+                <br>
+
+                <p>
+                    Selamat bertambah usia.
+                    Semoga di umur yang baru ini,
+                    setiap langkah yang kamu ambil selalu
+                    diberikan kemudahan dan keberkahan.
+                </p>
+
+                <br>
+
+                <p>
+                    Semoga kamu selalu diberikan kesehatan,
+                    ketenangan hati, rezeki yang baik,
+                    orang-orang yang tulus,
+                    serta alasan-alasan baru untuk tersenyum.
+                </p>
+
+                <br>
+
+                <p>
+                    Tidak harus selalu berjalan cepat.
+                    Tidak harus selalu tahu apa yang akan terjadi
+                    selanjutnya.
+                    Yang penting, semoga kamu tetap bertumbuh
+                    menjadi versi dirimu yang lebih baik.
+                </p>
+
+                <br>
+
+                <p>
+                    Semoga hal-hal baik yang sedang kamu perjuangkan
+                    perlahan menemukan jalannya.
+                    Dan ketika suatu hari nanti kamu melihat kembali
+                    perjalananmu hari ini,
+                    semoga kamu bisa berkata:
+                </p>
+
+                <br>
+
+                <p style="text-align:center; font-size:20px;">
+                    <strong>
+                        "Ternyata aku sudah sejauh ini."
+                    </strong>
+                </p>
+
+                <br>
+
+                <p>
+                    Have a beautiful birthday,
+                    Zihrol.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WISH -->
+
+        <section class="wish-section">
+
+            <h3 class="section-title">
+                Pilih Satu Doa
+            </h3>
+
+            <p class="section-subtitle">
+                Karena satu halaman saja tidak cukup untuk
+                mengirimkan semua harapan baik.
+            </p>
+
+
+            <div class="wish-buttons">
+
+                <button class="wish-btn" onclick="showWish(this, 'health')">
+                    <span>🌱</span>
+                    Kesehatan
+                </button>
+
+                <button class="wish-btn" onclick="showWish(this, 'dream')">
+                    <span>✨</span>
+                    Impian
+                </button>
+
+                <button class="wish-btn" onclick="showWish(this, 'happiness')">
+                    <span>💗</span>
+                    Kebahagiaan
+                </button>
+
+            </div>
+
+
+            <div class="wish-result" id="wishResult">
+
+                Klik salah satu pilihan di atas...
+
+            </div>
+
+        </section>
+
+
+        <!-- SURPRISE -->
+
+        <section class="surprise">
+
+            <button class="surprise-btn" onclick="surprise()">
+                🎁 One More Surprise
+            </button>
+
+            <div id="surpriseText">
+
+                <div class="glass-card">
+
+                    <h3 style="margin-bottom:15px;">
+                        ✨ Special Message
+                    </h3>
+
+                    <p style="color:#d8c9dc; line-height:1.9;">
+
+                        Kalau halaman ini bisa menyimpan satu hal
+                        selain kode, mungkin yang ingin disimpan
+                        adalah harapan supaya tahun ini menjadi
+                        salah satu chapter terbaik dalam hidupmu.
+
+                        <br><br>
+
+                        Semoga banyak hal baik datang tanpa harus
+                        kamu kejar terlalu jauh.
+
+                        <br><br>
+
+                        <strong style="color:#ff8ccc;">
+                            Happy Birthday, Zihrol Nur Aliyah.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            SYSTEM STATUS:
+            <span>Birthday successfully initialized.</span>
+        </div>
+
+        <div>
+            Made with HTML • CSS • JavaScript
+        </div>
+
+        <div>
+            For Zihrol Nur Aliyah
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================================
+           OPEN BIRTHDAY
+        ========================================= */
+
+        function openBirthday() {
+
+            const opening = document.getElementById("opening");
+
+            opening.classList.add("hidden");
+
+            setTimeout(() => {
+                startTyping();
+                createInitialBalloons();
+                fireworksBurst(
+                    window.innerWidth / 2,
+                    window.innerHeight / 2
+                );
+            }, 600);
+
+        }
+
+
+        /* =========================================
+           TYPING EFFECT
+        ========================================= */
+
+        const typingMessages = [
+
+            "another year unlocked...",
+            "another chapter begins...",
+            "may this year be kind to you...",
+            "happy birthday, Zihrol."
+
+        ];
+
+        let typingIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function startTyping() {
+
+            const element =
+                document.getElementById("typingText");
+
+            const current =
+                typingMessages[typingIndex];
+
+            if (!deleting) {
+
+                element.textContent =
+                    current.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === current.length) {
+
+                    deleting = true;
+
+                    setTimeout(startTyping, 1800);
+
+                    return;
+                }
+
+            } else {
+
+                element.textContent =
+                    current.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    typingIndex =
+                        (typingIndex + 1) %
+                        typingMessages.length;
+
+                }
+
+            }
+
+            setTimeout(
+                startTyping,
+                deleting ? 40 : 75
+            );
+
+        }
+
+
+        /* =========================================
+           WISH SYSTEM
+        ========================================= */
+
+        const wishes = {
+
+            health:
+                "Semoga Zihrol selalu diberikan kesehatan, umur yang berkah, ketenangan hati, dan kekuatan untuk menjalani setiap proses yang sedang diperjuangkan. 🤍",
+
+            dream:
+                "Semoga satu per satu impian Zihrol menemukan jalannya. Semoga usaha yang dilakukan hari ini suatu saat berubah menjadi sesuatu yang membuatmu bangga. ✨",
+
+            happiness:
+                "Semoga tahun ini dipenuhi lebih banyak tawa, orang-orang baik, momen sederhana yang menyenangkan, dan kebahagiaan yang tidak perlu dibuat-buat. 💗"
+
+        };
+
+
+        function showWish(button, type) {
+
+            document
+                .querySelectorAll(".wish-btn")
+                .forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            const result =
+                document.getElementById("wishResult");
+
+            result.style.opacity = 0;
+
+            setTimeout(() => {
+
+                result.textContent =
+                    wishes[type];
+
+                result.style.opacity = 1;
+
+            }, 250);
+
+            fireworksBurst(
+                window.innerWidth / 2,
+                window.innerHeight * .65
+            );
+
+        }
+
+
+        /* =========================================
+           SURPRISE
+        ========================================= */
+
+        function surprise() {
+
+            const text =
+                document.getElementById("surpriseText");
+
+            text.classList.toggle("show");
+
+            for (let i = 0; i < 5; i++) {
+
+                setTimeout(() => {
+
+                    fireworksBurst(
+                        Math.random() *
+                        window.innerWidth,
+
+                        Math.random() *
+                        window.innerHeight * .6
+                    );
+
+                }, i * 250);
+
+            }
+
+        }
+
+
+        /* =========================================
+           BALLOONS
+        ========================================= */
+
+        const balloonColors = [
+            "#ff69b4",
+            "#ff1493",
+            "#9370db",
+            "#87cefa",
+            "#ffd700",
+            "#ffb6c1"
+        ];
+
+
+        function createBalloon() {
+
+            const balloon =
+                document.createElement("div");
+
+            balloon.className = "balloon";
+
+            balloon.style.left =
+                Math.random() * 100 + "vw";
+
+            balloon.style.background =
+                balloonColors[
+                    Math.floor(
+                        Math.random() *
+                        balloonColors.length
+                    )
+                ];
+
+            balloon.style.animationDuration =
+                (Math.random() * 5 + 7) + "s";
+
+            balloon.style.transform =
+                `scale(${Math.random() * .5 + .7})`;
+
+            document.body.appendChild(balloon);
+
+            setTimeout(() => {
+
+                balloon.remove();
+
+            }, 13000);
+
+        }
+
+
+        function createInitialBalloons() {
+
+            for (let i = 0; i < 14; i++) {
+
+                setTimeout(
+                    createBalloon,
+                    Math.random() * 4000
+                );
+
+            }
+
+        }
+
+
+        setInterval(createBalloon, 1200);
+
+
+        /* =========================================
+           CLICK HEART EFFECT
+        ========================================= */
+
+        document.addEventListener("click", function(e) {
+
+            if (
+                e.target.tagName === "BUTTON" ||
+                e.target.tagName === "SELECT"
+            ) {
+                return;
+            }
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.textContent =
+                ["♥", "♡", "✦", "✧"][
+                    Math.floor(Math.random() * 4)
+                ];
+
+            heart.style.left =
+                e.clientX + "px";
+
+            heart.style.top =
+                e.clientY + "px";
+
+            heart.style.fontSize =
+                (Math.random() * 12 + 14) + "px";
+
+            heart.style.color =
+                "#ff69b4";
+
+            heart.style.setProperty(
+                "--x",
+                (Math.random() * 100 - 50) + "px"
+            );
+
+            heart.style.setProperty(
+                "--y",
+                -(Math.random() * 100 + 60) + "px"
+            );
+
+            document.body.appendChild(heart);
+
+            setTimeout(
+                () => heart.remove(),
+                1300
+            );
+
+        });
+
+
+        /* =========================================
+           FIREWORK ENGINE
+        ========================================= */
+
+        const canvas =
+            document.getElementById("fireworks");
+
+        const ctx =
+            canvas.getContext("2d");
+
+        let particles = [];
+
+        function resizeCanvas() {
+
+            canvas.width =
+                window.innerWidth;
+
+            canvas.height =
+                window.innerHeight;
+
+        }
+
+        resizeCanvas();
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        class FireworkParticle {
+
+            constructor(x, y, color) {
+
+                this.x = x;
+                this.y = y;
+
+                const angle =
+                    Math.random() *
+                    Math.PI * 2;
+
+                const speed =
+                    Math.random() * 6 + 2;
+
+                this.vx =
+                    Math.cos(angle) * speed;
+
+                this.vy =
+                    Math.sin(angle) * speed;
+
+                this.alpha = 1;
+
+                this.gravity = .08;
+
+                this.color = color;
+
+                this.size =
+                    Math.random() * 2.5 + 1;
+
+            }
+
+
+            update() {
+
+                this.vx *= .985;
+                this.vy *= .985;
+
+                this.vy += this.gravity;
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                this.alpha -= .012;
+
+            }
+
+
+            draw() {
+
+                ctx.globalAlpha =
+                    Math.max(this.alpha, 0);
+
+                ctx.fillStyle =
+                    this.color;
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+
+            }
+
+        }
+
+
+        function fireworksBurst(x, y) {
+
+            const colors = [
+                "#ff69b4",
+                "#ffd700",
+                "#87cefa",
+                "#ffffff",
+                "#b388ff"
+            ];
+
+            const color =
+                colors[
+                    Math.floor(
+                        Math.random() *
+                        colors.length
+                    )
+                ];
+
+            for (let i = 0; i < 100; i++) {
+
+                particles.push(
+                    new FireworkParticle(
+                        x,
+                        y,
+                        color
+                    )
+                );
+
+            }
+
+        }
+
+
+        function animateFireworks() {
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            for (
+                let i = particles.length - 1;
+                i >= 0;
+                i--
+            ) {
+
+                const particle =
+                    particles[i];
+
+                particle.update();
+                particle.draw();
+
+                if (particle.alpha <= 0) {
+
+                    particles.splice(i, 1);
+
+                }
+
+            }
+
+            ctx.globalAlpha = 1;
+
+            requestAnimationFrame(
+                animateFireworks
+            );
+
+        }
+
+        animateFireworks();
+
+
+        /* =========================================
+           RANDOM FIREWORKS
+        ========================================= */
+
+        setInterval(() => {
+
+            if (
+                !document
+                    .getElementById("opening")
+                    .classList
+                    .contains("hidden")
+            ) {
+                return;
+            }
+
+            fireworksBurst(
+                Math.random() *
+                window.innerWidth,
+
+                Math.random() *
+                window.innerHeight *
+                .55
+            );
+
+        }, 4500);
+
+    </script>
+
+</body>
+</html>
+```
